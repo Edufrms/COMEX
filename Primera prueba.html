@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COMEX</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <header>
+        <h1>Comercio exterior y digital business</h1>
+    </header>
+    <img src="Imagenes/Foto 1.jpg" alt="Comercio exterior y digital business" width="600">
+    <main>
+        <p>Todo contenio sobre comercio internacional y digital business.</p>
+        <p>Visitas: <span id="contador-visitas">0</span></p>
+    </main>
+    <footer>
+        <p>&copy; 2024 Mi página web</p>
+    </footer>
+    <script>
+           // Si no existe, inicializamos el contador
+        if (visitas === null) {
+            visitas = 0;
+                // Mostrar el contador en el HTML
+                localStorage.setItem('contadorVisitas', visitas);
+        document.getElementById('contador-visitas').textContent = visitas;
+    </script>
+    <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Visitas</title>
+</head>
+<body>
+    <h1>Contador de visitas</h1>
+    <p>Visitas: <span id="contador-visitas">Cargando...</span></p>
+    <script>
+        fetch('http://localhost:3000/contador')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('contador-visitas').textContent = data.visitas;
+            });
+    </script>
+</body>
+</html>
+</body>
+</html>
